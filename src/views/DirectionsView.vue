@@ -2,7 +2,7 @@
     <div id="Directions">
         <div class="grid grid-cols-12 mt-4 shadow-md">
             <div class="col-span-2 mx-auto">
-                <div>
+                <div @click="router.push('/')">
                     <ArrowIcon :size="35" />
                 </div>
 
@@ -30,6 +30,7 @@
                         v-model:input="destination"
                         placeholder="Where to?"
                         @isActive="isPickupActive = false"
+                        :goBtn="true"
                     />
                 </div>
             </div>
@@ -49,6 +50,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import AutoCompleteInput from '@/components/AutoCompleteInput.vue'
 
 import ArrowIcon from 'vue-material-design-icons/ArrowLeft.vue'
@@ -57,6 +59,8 @@ import MapMarkerIcon from 'vue-material-design-icons/MapMarker.vue'
 const isPickupActive = ref(true)
 const pickup = ref('')
 const destination = ref('')
+
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>

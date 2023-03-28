@@ -14,26 +14,32 @@
             autocomplete="off"
         />
         <WindowCloseIcon @click="emit('clearInput')" fillColor="#2e2e2b" />
+        <ArrowRightIcon v-if="goBtn" fillColor="#2e2e2b" @click="router.push('/map')" />
     </div>
 </template>
 
 <script setup>
 import { toRefs, defineProps, defineEmits, computed } from 'vue'
+import { useRouter } from 'vue-router'
 
 import WindowCloseIcon from 'vue-material-design-icons/WindowClose.vue'
+import ArrowRightIcon from 'vue-material-design-icons/ArrowRight.vue'
 
 const emit = defineEmits(['update:input', 'clearInput', 'isActive'])
 
 const props = defineProps({
     theId: String,
     input: String,
-    placeholder: String
+    placeholder: String,
+    goBtn: { Boolean, default: false }
 })
 
-const { theId, input, placeholder } = toRefs(props)
+const { theId, input, placeholder, goBtn } = toRefs(props)
 
 const inputComputed = computed({
     get: () => input.value,
     set: (val) => emit('update:input', val)
 })
+
+const router = useRouter()
 </script>

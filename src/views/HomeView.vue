@@ -10,6 +10,7 @@
           text="Ride"
           image="ride"
           imageWidth="74"
+          @click="router.push('/directions')"
         />
         <ServiceSelectLarge 
           text="Food"
@@ -37,7 +38,7 @@
         />
       </div>
 
-      <div class="
+      <div @click="router.push('/directions')" class="
         w-full bg-custom-color
         h-14 rounded-full flex
         items-center p-3
@@ -59,6 +60,9 @@ import ServiceSelectSmall from '@/components/ServiceSelectSmall.vue'
 import Footer from '@/components/Footer.vue'
 
 import MagnifyIcon from 'vue-material-design-icons/Magnify.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 </script>
 
 <style lang="scss" scoped>

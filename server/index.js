@@ -34,7 +34,7 @@ app.get('/api/address/:address', async (req, res) => {
     }
 })
 
-app.get('/api/distance/:pickup/:distination', async (req, res) => {
+app.get('api/distance/:pickup/:distination', async (req, res) => {
     try {
         let data = await axios.get(
             'distancematrix/json' +

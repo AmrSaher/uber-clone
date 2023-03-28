@@ -5,13 +5,13 @@
       mb-2 border-t-2
       border-t-gray-200
     ">
-      <div class="grid place-items-center">
+      <div class="grid place-items-center" @click="router.push('/')">
         <HomeIcon :size="30" fillColor="#1f1e1e" />
         <div class="w-full mt-1 text-xs text-center text-gray-800 font-semibold">
           Home
         </div>
       </div>
-      <div class="grid place-items-center">
+      <div class="grid place-items-center" @click="router.push('/directions')">
         <MapMarkerIcon :size="30" fillColor="#b3b1b1" />
         <div class="w-full mt-1 text-xs text-center text-gray-400 font-semibold">
           Destination
@@ -23,4 +23,7 @@
 <script setup>
 import HomeIcon from 'vue-material-design-icons/Home.vue'
 import MapMarkerIcon from 'vue-material-design-icons/MapMarker.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 </script>
